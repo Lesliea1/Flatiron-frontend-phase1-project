@@ -18,48 +18,62 @@
 
     <header id="top">
         <h1> Which shoes to choose?</h1>
+        
         <nav>
+            <br>
             <ul>
                 <li>
-                    <a href="#section1">Long Walks</a>
+                    <a href="#section1">Long Street Walks</a>
                 </li>
+            <br>
+
                 <li>
                     <a href="#section2">Rough Terrain</a>
                 </li>
+            <br>
+
                 <li>
-                    <a href="#section3">Night out</a>
+                    <a href="#section3">Fancy Night Out</a>
                 </li>
             </ul>
         </nav>
     </header>
+    
     <br>
-
+    
     <main>
 
         <section class="search-form">
-            <h2> Snack Selector</h2>
-            <form action="GET" id="meal-form ">
-                <label for="search-terms">search term:</label>
+            <h2> Shoe Selector </h2>
+            <br>
+            <form action="GET" id="shoe-form">
+                <label for="search-terms">Search term:</label>
                 <input type="text" name="search-terms" id="search-terms" 
                 placeholder="input search term" required>
 
+                    
+                <input type="submit" value="search">
+
                 <br />
                 
-                <label form = >
-                <select name="category" id="category-filter">
-                    <option value="option 1">option 1</option>
-                    <option value="option 2">option 2</option>
-                    <option value="option 3">option 3</option>
+                <label for="category-filter">Category Filter</label> >
+                <select name="category" id="category-filter" required>
+                    <option value="option 1">Long Street Walks</option>
+                    <option value="option 2">Rough Terrain</option>
+                    <option value="option 3">Fancy Night Out</option>
                 </select>
 
-
+                <br />
 
             </form>
 
         </section> 
+        
+        <br>
+        <br>
 
         <section id="section1">
-            <h2>Option 1</h2>
+            <h2>Long Street Walks</h2>
             <img src="#" alt="some image">
             <p>
 
@@ -69,40 +83,19 @@
         <br>
 
          <section id="section2">
-            <h2>Option 2</h2>
+            <h2>Rough Terrain</h2>
             <img src="#" alt="some image">
         </section>
 
         <br>
 
         <section id="section3">
-            <h2>Option 3</h2>
+            <h2>Fancy Night Out</h2>
             <img src="#" alt="some image">
         </section>
 
         <br>
 
-       <!-- <section class="search-form">
-            <h2> Snack Selector</h2>
-            <form action="GET" id="meal-form ">
-                <label for="search-terms">search term:</label>
-                <input type="text" name="search-terms" id="search-terms" 
-                placeholder="input search term" required>
-
-                <br />
-                
-                <label form = >
-                <select name="category" id="category-filter">
-                    <option value="option 1">option 1</option>
-                    <option value="option 2">option 2</option>
-                    <option value="option 3">option 3</option>
-                </select>
-
-
-
-            </form>
-
-        </section> -->
     </main>
 
     <footer>
