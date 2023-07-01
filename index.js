@@ -1,1 +1,1 @@
-example text
+console.log ('connected')
