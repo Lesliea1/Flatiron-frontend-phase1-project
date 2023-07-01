@@ -4,15 +4,15 @@ TODO list
 
 [] - call public api 
 
-- html css js
-- public api or db.json
-- 2 different event listeners
-- iterating through arrays
-- need to use array methods 
-- single page only
-- 30 + commits
-- render date in the html DOM
-- 5 objects
+[x] html css js
+[] public api or db.json
+[] 2 different event listeners
+[] iterating through arrays
+[] need to use array methods 
+[] single page only
+[] 30 + commits
+[] render date in the html DOM
+[] 5 objects
 
 
 
