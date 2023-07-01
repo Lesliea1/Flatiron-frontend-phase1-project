@@ -1,112 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Which shoes to choose?</title>
 
     <!-- css reset modern-normalize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" 
-    integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- custom css-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- custom javascript-->
     <script defer src="index.js"></script>
-    
-</head>
-<body>
-
+  </head>
+  <body>
     <header id="top">
-        <h1> Which shoes to choose?</h1>
-        
-        <nav>
-            <br>
-            <ul>
-                <li>
-                    <a href="#section1">Long Street Walks</a>
-                </li>
-            <br>
+      <h1>Which shoes to choose?</h1>
 
-                <li>
-                    <a href="#section2">Rough Terrain</a>
-                </li>
-            <br>
+      <nav>
+        <br />
+        <ul>
+          <li>
+            <a href="#section1">Long Street Walks</a>
+          </li>
+          <br />
 
-                <li>
-                    <a href="#section3">Fancy Night Out</a>
-                </li>
-            </ul>
-        </nav>
+          <li>
+            <a href="#section2">Rough Terrain</a>
+          </li>
+          <br />
+
+          <li>
+            <a href="#section3">Fancy Night Out</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <br>
-    
+    <br />
+
     <main>
+      <section class="search-form">
+        <h2>Shoe Selector</h2>
+        <br />
+        <form action="GET" id="shoe-form">
+          <label for="search-terms">Search term:</label>
+          <input
+            type="text"
+            name="search-terms"
+            id="search-terms"
+            placeholder="input search term"
+            required
+          />
 
-        <section class="search-form">
-            <h2> Shoe Selector </h2>
-            <br>
-            <form action="GET" id="shoe-form">
-                <label for="search-terms">Search term:</label>
-                <input type="text" name="search-terms" id="search-terms" 
-                placeholder="input search term" required>
+          <input type="submit" value="search" />
 
-                    
-                <input type="submit" value="search">
+          <br />
 
-                <br />
-                
-                <label for="category-filter">Category Filter</label> >
-                <select name="category" id="category-filter" required>
-                    <option value="option 1">Long Street Walks</option>
-                    <option value="option 2">Rough Terrain</option>
-                    <option value="option 3">Fancy Night Out</option>
-                </select>
+          <label for="category-filter">Category Filter</label> >
+          <select name="category" id="category-filter" required>
+            <option value="option 1">Long Street Walks</option>
+            <option value="option 2">Rough Terrain</option>
+            <option value="option 3">Fancy Night Out</option>
+          </select>
 
-                <br />
+          <br />
+        </form>
+      </section>
 
-            </form>
+      <br />
+      <br />
 
-        </section> 
-        
-        <br>
-        <br>
+      <section id="section1">
+        <h2>Long Street Walks</h2>
+        <img src="#" alt="some image" />
+        <p></p>
+      </section>
 
-        <section id="section1">
-            <h2>Long Street Walks</h2>
-            <img src="#" alt="some image">
-            <p>
+      <br />
 
-            </p>
-        </section>
+      <section id="section2">
+        <h2>Rough Terrain</h2>
+        <img src="#" alt="some image" />
+      </section>
 
-        <br>
+      <br />
 
-         <section id="section2">
-            <h2>Rough Terrain</h2>
-            <img src="#" alt="some image">
-        </section>
+      <section id="section3">
+        <h2>Fancy Night Out</h2>
+        <img src="#" alt="some image" />
+      </section>
 
-        <br>
-
-        <section id="section3">
-            <h2>Fancy Night Out</h2>
-            <img src="#" alt="some image">
-        </section>
-
-        <br>
-
+      <br />
     </main>
 
     <footer>
-        <p>
-            Copyright Leslie 2023
-        </p>
-        <a href="#top">Back to the top</a>
+      <p>Copyright Leslie 2023</p>
+      <a href="#top">Back to the top</a>
     </footer>
-</body>
+  </body>
 </html>
