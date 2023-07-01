@@ -1,1 +1,1 @@
-console.log ('connected')
+console.log ('js connected 2.0')
