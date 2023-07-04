@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Which tune to choose?</title>
+    <title>What Drink To Choose?</title>
 
     <!-- css reset modern-normalize -->
     <link
@@ -23,94 +23,23 @@
   </head>
   <body>
     <header id="top">
-      <h1>What Tunes To Choose?</h1>
+      <h1 class="main-title">Which Drink Will It Be?</h1>
 
-      <nav>
-        <br />
-        <ul>
-          <li>
-            <a href="#section1">Fancy Night Out</a>
-          </li>
-          <br />
+      <br>
 
-          <li>
-            <a href="#section2">Active Workout</a>
-          </li>
-          <br />
+       <h2>Cocktail Selector</h2>
 
-           <li>
-            <a href="#section3">Rough Terrain</a>
-          </li>
-          <br>
-          <li>
-            <a href="#section4">Long Street Walks</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+       <!-- Search-->
+
+      <select name="cocktails" id="cocktails">
+        <option value="">Cocktail Options</option>
+      </select>
+     </header>
 
     <br />
 
     <main>
-      <section class="search-form">
-        <h2>Tune Selector</h2>
-        <br />
-        <form action="GET" id="radio-form">
-          <label for="search-terms">Search term:</label>
-          <input
-            type="text"
-            name="search-terms"
-            id="search-terms"
-            placeholder="input search term"
-            required
-          />
-
-          <input type="submit" value="search" />
-
-          <br />
-
-          <label for="category-filter">Category Filter</label> >
-          <select name="category" id="category-filter" required>
-            <option value="option 1">Fancy Night Out</option>
-            <option value="option 2">Active Workout</option>
-            <option value="option 3">Rough Terrain</option>
-            <option value="option 4">Long Street Walks</option>
-          </select>
-
-          <br />
-        </form>
-      </section>
-
-      <br />
-      <br />
-
-      <section id="section1">
-        <h2>Fancy Night Out</h2>
-        <img src="" alt="some image" />
-        <p></p>
-      </section>
-
-      <br />
-       <section id="section2">
-        <h2>Active Workout</h2>
-        <img src="#" alt="some image" />
-      </section>
-
-      <br>
-
-      <section id="section3">
-        <h2>Rough Terrain</h2>
-        <img src="#" alt="some image" />
-      </section>
-
-      <br />
-
-      <section id="section4">
-        <h2>Long Street Walks</h2>
-        <img src="#" alt="some image" />
-      </section>
-
-      <br />
+    
     </main>
 
     <footer>

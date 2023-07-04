@@ -1,10 +1,13 @@
-console.log ('js connected 2.0')
+// elements https://www.themealdb.com/api/json/v1/1/list.php?a=list */
 
+const drinkSelect = document.querySelector("#cocktails");
 
-const handleFormInputFocus = () => {
-console.log("it works!")
+// Function calls
+getCocktails();
+
+function getCocktails() {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
+    .then((r) => r.json())
+    .then((cocktails) => console.log()) //renderCocktailOptions(cocktails.drinks))
+    .catch();
 }
-
-const searchTermsInput = document.body.querySelector("#search-terms")
-
-searchTermsInput.addEventListener("focus", handleFormInputFocus);
