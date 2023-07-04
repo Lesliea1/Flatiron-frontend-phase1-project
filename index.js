@@ -1,15 +1,24 @@
 // elements https://www.themealdb.com/api/json/v1/1/list.php?a=list */
 
 const drinkSelect = document.querySelector("#cocktails");
+const categorySelect = document.querySelector("#categories");
 
 // Function calls
 getCocktails();
+getCategories();
 
 function getCocktails() {
-  fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
     .then((r) => r.json())
     .then((cocktails) => renderCocktailOptions(cocktails.drinks))
-    .catch();
+    .catch((error) => alert(error));
+}
+
+function getCategories() {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
+    .then((r) => r.json())
+    .then((categories) => renderCategoryOptions(categories.drinks))
+    .catch((error) => alert(error));
 }
 
 function renderCocktailOptions(cocktails) {
@@ -18,5 +27,14 @@ function renderCocktailOptions(cocktails) {
     option.value = cocktail.strDrink;
     option.textContent = cocktail.strDrink;
     drinkSelect.append(option);
+  });
+}
+
+function renderCategoryOptions(categories) {
+  categories.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = category.strDrink;
+    option.textContent = category.strDrink;
+    categorySelect.append(option);
   });
 }
