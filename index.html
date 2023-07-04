@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Which shoes to choose?</title>
+    <title>Which tune to choose?</title>
 
     <!-- css reset modern-normalize -->
     <link
@@ -23,23 +23,27 @@
   </head>
   <body>
     <header id="top">
-      <h1>Which shoes to choose?</h1>
+      <h1>What Tunes To Choose?</h1>
 
       <nav>
         <br />
         <ul>
           <li>
-            <a href="#section1">Long Street Walks</a>
+            <a href="#section1">Fancy Night Out</a>
           </li>
           <br />
 
           <li>
-            <a href="#section2">Rough Terrain</a>
+            <a href="#section2">Active Workout</a>
           </li>
           <br />
 
+           <li>
+            <a href="#section3">Rough Terrain</a>
+          </li>
+          <br>
           <li>
-            <a href="#section3">Fancy Night Out</a>
+            <a href="#section4">Long Street Walks</a>
           </li>
         </ul>
       </nav>
@@ -49,9 +53,9 @@
 
     <main>
       <section class="search-form">
-        <h2>Shoe Selector</h2>
+        <h2>Tune Selector</h2>
         <br />
-        <form action="GET" id="shoe-form">
+        <form action="GET" id="radio-form">
           <label for="search-terms">Search term:</label>
           <input
             type="text"
@@ -67,9 +71,10 @@
 
           <label for="category-filter">Category Filter</label> >
           <select name="category" id="category-filter" required>
-            <option value="option 1">Long Street Walks</option>
-            <option value="option 2">Rough Terrain</option>
-            <option value="option 3">Fancy Night Out</option>
+            <option value="option 1">Fancy Night Out</option>
+            <option value="option 2">Active Workout</option>
+            <option value="option 3">Rough Terrain</option>
+            <option value="option 4">Long Street Walks</option>
           </select>
 
           <br />
@@ -80,22 +85,28 @@
       <br />
 
       <section id="section1">
-        <h2>Long Street Walks</h2>
-        <img src="#" alt="some image" />
+        <h2>Fancy Night Out</h2>
+        <img src="" alt="some image" />
         <p></p>
       </section>
 
       <br />
+       <section id="section2">
+        <h2>Active Workout</h2>
+        <img src="#" alt="some image" />
+      </section>
 
-      <section id="section2">
+      <br>
+
+      <section id="section3">
         <h2>Rough Terrain</h2>
         <img src="#" alt="some image" />
       </section>
 
       <br />
 
-      <section id="section3">
-        <h2>Fancy Night Out</h2>
+      <section id="section4">
+        <h2>Long Street Walks</h2>
         <img src="#" alt="some image" />
       </section>
 
