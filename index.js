@@ -1,11 +1,13 @@
-// elements https://www.themealdb.com/api/json/v1/1/list.php?a=list */
-
 const drinkSelect = document.querySelector("#cocktails");
 const categorySelect = document.querySelector("#categories");
 
 // Function calls
 getCocktails();
 getCategories();
+
+// Event Listeners
+drinkSelect.addEventListener("change", getDrink);
+categorySelect.addEventListener("change", getCocktailByCategory);
 
 function getCocktails() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
