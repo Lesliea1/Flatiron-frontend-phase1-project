@@ -2,22 +2,26 @@ const drinkSelect = document.querySelector("#cocktails");
 const categorySelect = document.querySelector("#categories");
 
 // Function calls
-getCocktails();
-getCategories();
+getACocktails();
+getNACocktails();
 
 // Event Listeners
 drinkSelect.addEventListener("change", getDrink);
 categorySelect.addEventListener("change", getCocktailByCategory);
 
-function getCocktails() {
-  fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
+function getACocktails() {
+  fetch(
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink"
+  )
     .then((r) => r.json())
     .then((cocktails) => renderCocktailOptions(cocktails.drinks))
     .catch((error) => alert(error));
 }
 
-function getCategories() {
-  fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
+function getNACocktails() {
+  fetch(
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+  )
     .then((r) => r.json())
     .then((categories) => renderCategoryOptions(categories.drinks))
     .catch((error) => alert(error));
