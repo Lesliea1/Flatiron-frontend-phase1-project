@@ -1,5 +1,12 @@
-body {
+html {
     background-color: rgb(185, 236, 253);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.card {
+    max-width: 30%;
+    border: solid 1px;
+    margin: 20px;
+    padding: 10px;
+    background-color: antiquewhite;
+}
