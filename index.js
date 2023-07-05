@@ -1,6 +1,6 @@
 // Elements
-const drinkSelect = document.querySelector("#cocktails");
-const categorySelect = document.querySelector("#categories");
+const aDrinkSelect = document.querySelector("#cocktails");
+const nADrinkSelect = document.querySelector("#NADrinks");
 const cocktailContainer = document.querySelector(".cocktail-container");
 
 // Function calls
@@ -8,10 +8,10 @@ getACocktails();
 getNACocktails();
 
 // Event Listeners
-drinkSelect.addEventListener("change", getCocktail);
-categorySelect.addEventListener("change", getNADrink);
+aDrinkSelect.addEventListener("change", getCocktailRecipe);
+nADrinkSelect.addEventListener("change", getNARecipe);
 
-//Dropdown Functiond
+//Dropdown Functions
 function getACocktails() {
   fetch(
     "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink"
@@ -26,7 +26,7 @@ function getNACocktails() {
     "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
   )
     .then((r) => r.json())
-    .then((categories) => renderCategoryOptions(categories.drinks))
+    .then((nADrink) => renderCategoryOptions(nADrink.drinks))
     .catch((error) => alert(error));
 }
 
@@ -35,48 +35,49 @@ function renderCocktailOptions(cocktails) {
     const option = document.createElement("option");
     option.value = cocktail.strDrink;
     option.textContent = cocktail.strDrink;
-    drinkSelect.append(option);
+    aDrinkSelect.append(option);
   });
 }
 
-function renderCategoryOptions(categories) {
-  categories.forEach((category) => {
+function renderCategoryOptions(nADrinks) {
+  nADrinks.forEach((nADrink) => {
     const option = document.createElement("option");
-    option.value = category.strDrink;
-    option.textContent = category.strDrink;
-    categorySelect.append(option);
+    option.value = nADrink.strDrink;
+    option.textContent = nADrink.strDrink;
+    nADrinkSelect.append(option);
   });
 }
 
-// Card Functions
+// Recipe collections
 
-function getCocktail() {
+function getCocktailRecipe(e) {
   const aCocktail = e.target.value;
 
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${aCocktail}`)
     .then((r) => r.json())
-    .then((alchoholic) => renderAllCocktails(alchoholic.drinks))
+    .then((recipes) => renderAllRecipes(recipes.drinks))
     .catch((error) => alert(error));
 }
 
-function getNADrink() {
+function getNARecipe(e) {
   const nADrink = e.target.value;
 
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${nADrink}`)
     .then((r) => r.json())
-    .then((nonAlcoholic) => renderAllNAlcoholic(nonAlcoholic.drinks))
+    .then((recipes) => renderAllRecipes(recipes.drinks))
     .catch((error) => alert(error));
 }
 
-function renderAllCocktails(aDrinks) {
-  aDrinks.forEach((aDrink) => {
-    renderCocktailCard(aDrink);
+function renderAllRecipes(drinks) {
+  cocktailContainer.replaceChildren();
+  drinks.forEach((drink) => {
+    renderRecipeCard(drink);
   });
   drinkSelect.value = "";
   categorySelect.value = "";
 }
 
-function renderCocktailCard(aDrink) {
+function renderRecipeCard(aDrink) {
   const {
     idDrink: cocktailId,
     strDrinkThumb: cocktailImage,
@@ -86,10 +87,14 @@ function renderCocktailCard(aDrink) {
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
   //add event listener to card
+
+  const image = document.createElement("img");
+  image.src = cocktailImage;
+
+  const title = document.createElement("h3");
+  title.textContent = cocktailName;
+
+  cardDiv.append(image, title);
+  cocktailContainer.append(cardDiv);
 }
 
-function renderAllNAlcoholic(NDrinks) {
-  NDrinks.forEach((nDrink) => {});
-  drinkSelect.value = "";
-  categorySelect.value = "";
-}
