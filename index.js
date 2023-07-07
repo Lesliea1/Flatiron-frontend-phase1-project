@@ -51,9 +51,8 @@ function renderCategoryOptions(nADrinks) {
 // Recipe collections
 
 function getCocktailRecipe(e) {
-  const aCocktail = e.target.value;
-
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${aCocktail}`)
+  const aDrink = e.target.value;
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${aDrink}`)
     .then((r) => r.json())
     .then((recipes) => renderAllRecipes(recipes.drinks))
     .catch((error) => alert(error));
@@ -62,27 +61,27 @@ function getCocktailRecipe(e) {
 function getNARecipe(e) {
   const nADrink = e.target.value;
 
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${nADrink}`)
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nADrink}`)
     .then((r) => r.json())
     .then((recipes) => renderAllRecipes(recipes.drinks))
     .catch((error) => alert(error));
 }
 
-function renderAllRecipes(drinks) {
+function renderAllRecipes(recipes) {
   cocktailContainer.replaceChildren();
-  drinks.forEach((drink) => {
-    renderRecipeCard(drink);
+  recipes.forEach((recipe) => {
+    renderRecipeCard(recipe);
   });
-  drinkSelect.value = "";
-  categorySelect.value = "";
+  aDrinkSelect.value = "";
+  nADrinkSelect.value = "";
 }
 
-function renderRecipeCard(aDrink) {
+function renderRecipeCard(alDrink) {
   const {
-    idDrink: cocktailId,
+    //idDrink: cocktailId,
     strDrinkThumb: cocktailImage,
     strDrink: cocktailName,
-  } = aDrink;
+  } = alDrink;
 
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
@@ -96,5 +95,4 @@ function renderRecipeCard(aDrink) {
 
   cardDiv.append(image, title);
   cocktailContainer.append(cardDiv);
-}
-
+} 
