@@ -1,7 +1,7 @@
 // Elements
 const aDrinkSelect = document.querySelector("#cocktails");
 const nADrinkSelect = document.querySelector("#NADrinks");
-const cocktailContainer = document.querySelector(".cocktail-container");
+const recipeContainer = document.querySelector(".recipe-container");
 
 // Function calls
 getACocktails();
@@ -68,7 +68,7 @@ function getNARecipe(e) {
 }
 
 function renderAllRecipes(recipes) {
-  cocktailContainer.replaceChildren();
+  recipeContainer.replaceChildren();
   recipes.forEach((recipe) => {
     renderRecipeCard(recipe);
   });
@@ -76,23 +76,30 @@ function renderAllRecipes(recipes) {
   nADrinkSelect.value = "";
 }
 
-function renderRecipeCard(alDrink) {
+function renderRecipeCard(recipe) {
   const {
-    //idDrink: cocktailId,
-    strDrinkThumb: cocktailImage,
-    strDrink: cocktailName,
-  } = alDrink;
+    idDrink: recipeId,
+    strDrinkThumb: recipeImage,
+    strDrink: recipeName,
+  } = recipe;
 
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
-  //add event listener to card
+  cardDiv.addEventListener("click", (e) => getRecipeDetails(e, recipeId));
 
   const image = document.createElement("img");
-  image.src = cocktailImage;
+  image.src = recipeImage;
 
   const title = document.createElement("h3");
-  title.textContent = cocktailName;
+  title.textContent = recipeName;
 
   cardDiv.append(image, title);
-  cocktailContainer.append(cardDiv);
-} 
+  recipeContainer.append(cardDiv);
+}
+
+function getRecipeDetails(e, recipeId) {
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${recipeId}`)
+    .then((r) => r.json())
+    .then((recipes) => console.log(recipes.drinks[0]))
+    .catch((error) => alert(error));
+}
