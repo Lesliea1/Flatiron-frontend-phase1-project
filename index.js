@@ -105,16 +105,70 @@ function getRecipeDetails(e, recipeId) {
 }
 
 function renderRecipeDetails(recipeDetails) {
+  recipeContainer.replaceChildren();
+
   const {
     strDrink: recipe,
     strDrinkThumb: image,
     strCategory: category,
     strInstructions: directions,
+    strVideo: youTubeLink,
   } = recipeDetails;
 
   const title = document.createElement("p");
   title.textContent = recipe;
-  let titleArea = document.document.querySelector(".recipe-details-title");
+  let titleArea = document.querySelector(".recipe-details-title");
   titleArea.replaceChildren();
   titleArea.append(title);
+
+  const imageArea = document.querySelector(".recipe-details-image");
+  const recipeImage = document.createElement("img");
+  recipeImage.src = image;
+  recipeImage.alt - `Image for ${recipe}`;
+  imageArea.replaceChildren();
+  imageArea.append(recipeImage);
+
+  const ingredients = parseIngredients(recipeDetails);
+
+  //const ingredientsPs = ingredients.map;
+
+  const ingredientsArea = document.querySelector(".recipe-details-ingredients");
+  const ingredientsTitle = document.createElement("h3");
+  ingredientsTitle.textContent = "Ingredients";
+  ingredientsTitle.style.textDecoration = "underline";
+  ingredientsArea.replaceChildren();
+  ingredientsArea.append(ingredientsTitle);
+
+  const directionsArea = document.querySelector(".recipe-details-directions");
+  const directionsTitle = document.createElement("h3");
+  directionsTitle.textContent = "Directions";
+  directionsTitle.style.textDecoration = "underline";
+  const directionsP = document.createElement("p");
+  directionsArea.replaceChildren();
+  directionsP.textContent = directions;
+  directionsArea.append(directionsTitle, directionsP);
+
+  const resourcesArea = document.querySelector(".recipe-details-resources");
+  const youTubeLinkATag = document.createElement("a");
+  youTubeLinkATag.href = youTubeLink;
+  youTubeLinkATag.target = "_blank";
+  youTubeLinkATag.text = `How to make ${recipe} on YouTube.`;
+  const cuisineCategory = document.createElement("p");
+  cuisineCategory.textContent = `(Recipe: ${recipe}, Category: ${category})`;
+  resourcesArea.replaceChildren();
+  resourcesArea.append(youTubeLinkATag, cuisineCategory);
+}
+
+function parseIngredients(recipe) {
+  const ingredientArray = [];
+
+  for (let i = 1; i < 21; i++) {
+    let measure = recipe["strMeasure" + i.toString()];
+    let ingredient = recipe["strIngredient" + i.toString()];
+    if (ingredient !== null) {
+      let ingredientString = measure.trim() + "" + ingredient.trim();
+      ingredientArray.push(ingredientString);
+    }
+  }
+  return ingredientArray;
 }
