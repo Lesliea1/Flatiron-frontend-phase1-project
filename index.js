@@ -165,7 +165,12 @@ function parseIngredients(recipe) {
   for (let i = 1; i < 21; i++) {
     let measure = recipe["strMeasure" + i.toString()];
     let ingredient = recipe["strIngredient" + i.toString()];
-    if (ingredient !== null) {
+    if (
+      measure &&
+      ingredient &&
+      measure.trim() !== "" &&
+      ingredient.trim() !== ""
+    ) {
       let ingredientString = measure.trim() + "" + ingredient.trim();
       ingredientArray.push(ingredientString);
     }
