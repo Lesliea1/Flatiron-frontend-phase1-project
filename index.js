@@ -100,6 +100,21 @@ function renderRecipeCard(recipe) {
 function getRecipeDetails(e, recipeId) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${recipeId}`)
     .then((r) => r.json())
-    .then((recipes) => console.log(recipes.drinks[0]))
+    .then((recipes) => renderRecipeDetails(recipes.drinks[0]))
     .catch((error) => alert(error));
+}
+
+function renderRecipeDetails(recipeDetails) {
+  const {
+    strDrink: recipe,
+    strDrinkThumb: image,
+    strCategory: category,
+    strInstructions: directions,
+  } = recipeDetails;
+
+  const title = document.createElement("p");
+  title.textContent = recipe;
+  let titleArea = document.document.querySelector(".recipe-details-title");
+  titleArea.replaceChildren();
+  titleArea.append(title);
 }
