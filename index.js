@@ -130,14 +130,18 @@ function renderRecipeDetails(recipeDetails) {
 
   const ingredients = parseIngredients(recipeDetails);
 
-  //const ingredientsPs = ingredients.map;
+  const ingredientsPs = ingredients.map((ingredient) => {
+    const ingredientP = document.createElement("p");
+    ingredientP.textContent = ingredient;
+    return ingredientP;
+  });
 
   const ingredientsArea = document.querySelector(".recipe-details-ingredients");
   const ingredientsTitle = document.createElement("h3");
   ingredientsTitle.textContent = "Ingredients";
   ingredientsTitle.style.textDecoration = "underline";
   ingredientsArea.replaceChildren();
-  ingredientsArea.append(ingredientsTitle);
+  ingredientsArea.append(ingredientsTitle, ...ingredientsPs);
 
   const directionsArea = document.querySelector(".recipe-details-directions");
   const directionsTitle = document.createElement("h3");
@@ -162,18 +166,16 @@ function renderRecipeDetails(recipeDetails) {
 function parseIngredients(recipe) {
   const ingredientArray = [];
 
-  for (let i = 1; i < 21; i++) {
+  for (let i = 1; i < 16; i++) {
     let measure = recipe["strMeasure" + i.toString()];
     let ingredient = recipe["strIngredient" + i.toString()];
-    if (
-      measure &&
-      ingredient &&
-      measure.trim() !== "" &&
-      ingredient.trim() !== ""
-    ) {
-      let ingredientString = measure.trim() + "" + ingredient.trim();
-      ingredientArray.push(ingredientString);
+    if (ingredient === "" || ingredient === null) {
+      ingredient = "";
+      measure = "";
+      continue;
     }
+    let ingredientString = measure.trim() + "" + ingredient.trim();
+    ingredientArray.push(ingredientString);
   }
   return ingredientArray;
 }
