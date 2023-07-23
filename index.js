@@ -2,6 +2,7 @@
 const aDrinkSelect = document.querySelector("#cocktails");
 const nADrinkSelect = document.querySelector("#NADrinks");
 const recipeContainer = document.querySelector(".recipe-container");
+const selectionH1 = document.querySelector(".selection-heading");
 
 // Function calls
 getACocktails();
@@ -69,6 +70,7 @@ function getNARecipe(e) {
 
 function renderAllRecipes(recipes) {
   recipeContainer.replaceChildren();
+  selectionH1.textContent = aDrinkSelect.value || nADrinkSelect.value;
   recipes.forEach((recipe) => {
     renderRecipeCard(recipe);
   });
@@ -87,13 +89,16 @@ function renderRecipeCard(recipe) {
   cardDiv.classList.add("card");
   cardDiv.addEventListener("click", (e) => getRecipeDetails(e, recipeId));
 
+  const recipeTitleDiv = document.createElement("div");
+  recipeTitleDiv.classList.add("recipe-title");
   const image = document.createElement("img");
   image.src = recipeImage;
 
   const title = document.createElement("h3");
   title.textContent = recipeName;
 
-  cardDiv.append(image, title);
+  recipeTitleDiv.append(title);
+  cardDiv.append(image, recipeTitleDiv);
   recipeContainer.append(cardDiv);
 }
 
