@@ -3,8 +3,15 @@ const aDrinkSelect = document.querySelector("#cocktails");
 const nADrinkSelect = document.querySelector("#NADrinks");
 const recipeContainer = document.querySelector(".recipe-container");
 const selectionH1 = document.querySelector(".selection-heading");
+const recipeDetailsContainer = document.querySelector(
+  ".recipe-details-container"
+);
 
+const recipeDetailsSection = document.querySelector(".recipe-details-section");
+const welcomeSection = document.querySelector(".welcome");
+const mainTitle = document.querySelector(".main-title");
 // Function calls
+showWelcome();
 getACocktails();
 getNACocktails();
 
@@ -31,6 +38,12 @@ function getNACocktails() {
     .catch((error) => alert(error));
 }
 
+function showWelcome() {
+  recipeDetailsContainer.style.display = "none";
+  recipeContainer.style.display = "none";
+  welcomeSection.style.display = "grid";
+  selectionH1.textContent = "";
+}
 function renderCocktailOptions(cocktails) {
   cocktails.forEach((cocktail) => {
     const option = document.createElement("option");
@@ -69,8 +82,13 @@ function getNARecipe(e) {
 }
 
 function renderAllRecipes(recipes) {
+  welcomeSection.style.display = "none";
+  recipeDetailsContainer.style.display = "none";
+  recipeContainer.style.display = "grid";
   recipeContainer.replaceChildren();
+
   selectionH1.textContent = aDrinkSelect.value || nADrinkSelect.value;
+
   recipes.forEach((recipe) => {
     renderRecipeCard(recipe);
   });
@@ -110,6 +128,9 @@ function getRecipeDetails(e, recipeId) {
 }
 
 function renderRecipeDetails(recipeDetails) {
+  welcomeSection.style.display = "none";
+  selectionH1.textContent = "";
+  recipeDetailsContainer.style.display = "grid";
   recipeContainer.replaceChildren();
 
   const {
