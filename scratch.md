@@ -7,10 +7,10 @@ TODO list
 [x] html css js
 [x] public api or db.json
 [x] 2 different event listeners
-[] iterating through arrays
-[] need to use array methods 
-[] single page only
-[] 30 + commits
+[x] iterating through arrays
+[x] need to use array methods 
+[x] single page only
+[x] 30 + commits
 [x] 5 objects
 
 
