@@ -3,7 +3,7 @@ My Flatiron Frontend Phase 1 Project
 
 # What Drink To Choose?
 
-"What Drink To Choose?" helps users discover and choose between alcoholic and non-alcoholic drinks. It uses the CocktailDB API to fetch a variety of cocktail options, and users can select their preferred type of drink. Once a selection is made, it'll displays the available drinks along with their preparation details and ingredients.
+"What Drink To Choose?" helps users discover and choose between alcoholic and non-alcoholic drinks. It uses the CocktailDB API to fetch a variety of cocktail options, and users can select their preferred type of drink. Once a selection is made, it'll display the available drinks along with their preparation details and ingredients.
 
 Features
 
@@ -36,12 +36,12 @@ Assistances Used
 - JavaScript 
 - CocktailDB API (https://www.thecocktaildb.com/api.php)
 
-credits
+Credits
 
 - The CocktailDB API for providing the drinks data: https://www.thecocktaildb.com/api.php
 
 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the (LICENSE) file for details.
 
 ---
