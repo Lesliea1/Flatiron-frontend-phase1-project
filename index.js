@@ -150,7 +150,7 @@ function renderRecipeDetails(recipeDetails) {
   const imageArea = document.querySelector(".recipe-details-image");
   const recipeImage = document.createElement("img");
   recipeImage.src = image;
-  recipeImage.alt - `Image for ${recipe}`;
+  recipeImage.alt = `Image for ${recipe}`;
   imageArea.replaceChildren();
   imageArea.append(recipeImage);
 
